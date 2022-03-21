@@ -1,0 +1,121 @@
+*{
+  font-family: 'Quicksand', sans-serif;
+}
+body {
+    background:#bababa;
+    font-size: 12px;
+  }
+  
+  body, button, input {
+    font-family: 'Righteous', cursive;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+  }
+  
+  .container {
+    flex: 0 1 700px;
+    margin: auto;
+    padding: 10px;
+    border: rgb(0, 0, 0) 1px;
+  }
+  
+  .screen-body-item {
+    flex: 1;
+    padding: 50px;
+  }
+  
+  .screen-body-item.left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+  }
+  
+  .app-title {
+    display: flex;
+    /*flex-direction: column;*/
+    justify-content: center;
+    align-items: center;
+    color: #33d9b2;
+    font-size: 26px;
+    text-transform: uppercase;
+    border-left: 4px solid #218c74;
+    padding: 10px;
+  }
+  
+  .app-form-group {
+    margin-bottom: 15px;
+  }
+  
+  .app-form-group.buttons {
+    margin-bottom: 0;
+    text-align: right;
+  }
+  
+  .app-form-control {
+    width: 100%;
+    padding: 10px 0;
+    background: none;
+    border: none;
+    border-bottom: 1px solid rgb(45, 45, 45);
+    color: rgb(52, 52, 52);
+    font-size: 14px;
+    text-transform: uppercase;
+    outline: none;
+    transition: border-color .2s;
+  }
+  
+  .app-form-control::placeholder {
+    color: rgb(49, 49, 49);
+  }
+  
+  .app-form-control:focus {
+    border-bottom-color: #ddd;
+  }
+  
+  .app-form-button {
+    background: none;
+    border: none;
+    color: #0040ff;
+    font-size: 20px;
+    cursor: pointer;
+    outline: none;
+    text-transform: uppercase;
+  }
+  
+  .app-form-button:hover {
+    color: #00ddff;
+  }
+  
+  .showdata{
+    text-align: center;
+    color: rgb(30, 30, 30);
+    font-size: 1.2rem;
+    padding-top: -10px;
+    padding-bottom: 10px;
+  }
+
+  #judul{
+    margin-left: 51px;
+    margin-top: 20px;
+    margin-bottom: -40px;
+  }
+  #nama{
+    margin-bottom: -5px;
+  }   
+  #nim{
+    margin-bottom: -5px;
+  }
+  #nilaitugas{
+    margin-bottom: -5px;
+  }
+  #nilaipartis{
+    margin-bottom: -5px;
+  }
+  #nilaiuts{
+    margin-bottom: -5px;
+  }
+  #nilaiuas{
+    margin-bottom: -5px;
+  }

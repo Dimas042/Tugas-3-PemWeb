@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+   <link href="https://fonts.googleapis.com/css2?family=Monda&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+   <link rel="stylesheet" href="toastr/toastr.css">
+   <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<div class="background">
+  <div class="container">
+    <h2 id="in">masukkan email dan nomor telepon anda !</h2>
+    <div class="screen">
+      <div class="screen-body">
+        <div class="screen-body-item">
+          <div class="file-upload">
+            <input class="file-upload__button" type="file" id="file"></input>
+            <span class="file-upload__label"></span>
+            <div class="col">
+            <button class="btn btn-success" id="upload">Upload</button>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="toastr/jquery.js"></script>
+<script src="toastr/toastr.min.js"></script>
+<script>
+        $('#upload').on("click", function () {
+            let file = $("#file").prop("files")[0];
+            let form = new FormData();
+            form.append("file", file);
+            // alert(form);
+            $.ajax({
+                url: "upload.php",
+                cache: false,
+                contentType: false, 
+                processData: false,
+                data: form,
+                type: 'post',
+                success: function (resp) {
+                    toastr.options = {
+                        "closeButton": true,
+                        "debug": false,
+                        "newestOnTop": false,
+                        "progressBar": true,
+                        "positionClass": "toast-top-center",
+                        "preventDuplicates": true,
+                        "onclick": null,
+                        "showDuration": "300",
+                        "hideDuration": "1000",
+                        "timeOut": "5000",
+                        "extendedTimeOut": "1000",
+                        "showEasing": "swing",
+                        "hideEasing": "linear",
+                        "showMethod": "fadeIn",
+                        "hideMethod": "fadeOut"
+                        }
+                    toastr["success"]("File Berhasil di Upload!", "Success")
+                }
+            });
+        });
+
+        $("#file").change(function () {
+            let allowed = ['aplication/pdf', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.ms-excel'];
+            let file = this.files[0];
+            let typeFile = file.type;
+            if(!allowed.includes(typeFile)){
+                toastr.options = {
+                    "closeButton": true,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": true,
+                    "positionClass": "toast-top-center",
+                    "preventDuplicates": true,
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                    }
+                toastr["warning"]("Hanya File PDF/Excel! saja", "Warning")
+                $("#file").val('');
+                return false;
+            }
+        })
+    </script>
+
+</body>
+</html>
